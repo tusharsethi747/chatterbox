@@ -34,7 +34,7 @@ const Chat = () => {
   useEffect(()=>{
     // console.log(`my current user is inside `, CurrentUser._id)
     if(CurrentUser){
-      socket.current=io(`http://localhost:5500`);
+      socket.current=io(`${path}`);
       socket.current.emit("add-user",CurrentUser._id);
       console.log(`id of current user is `, CurrentUser._id)
     }
