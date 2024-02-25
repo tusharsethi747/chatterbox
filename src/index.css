@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+button,
+input {
+  font-family: "Josefin Sans", sans-serif;
+}
+.custom-bg-color{
+  background-color: rgb(19, 19, 36);
+}
+.set-dimensions{
+  height: 85vh;
+  width: 85vw;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  @media (max-width:1200px) {
+    grid-template-columns: 50% 50%;
+  }
+}
+.Set-Contact-Rows{
+  grid-template-rows: 15% 70% 15%;
+}
+.ChatContainer-CSS {
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
+  gap: 0.1rem;
+  overflow:hidden;
+}
+/* .ChatInput-Container{
+  display: grid;
+  grid-template-columns: 5% 95%;
+} */
+
+.make-responsive{
+  @media (max-width:740px) {
+    /* background-color: coral; */
+    text-align: left;
+  }
+}
+
+/* .set-margin{
+  @media (max-width:740px) {
+    text-align: center;
+    width: 100%;
+  }
+} */
+
+.changeFont{
+  @media (max-width:740px) {
+    font-size:x-large;
+    font-weight: 900;
+    padding: 0;
+    margin: 0;
+  }
+  @media (max-width:520px) {
+    font-size:small;
+    font-weight: 900;
+    padding: 0;
+    margin: 0;
+  }
+}
+.welcome-responsive{
+  @media (max-width:700px) {
+    font-size: x-large;
+  }
+}
+.changeFontmsg{
+  @media (max-width:740px) {
+    font-size: small;
+    padding: 2px;
+  }
+}
