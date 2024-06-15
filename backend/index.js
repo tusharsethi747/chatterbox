@@ -26,6 +26,15 @@ app.use(express.json());
 config();
 const PORT=process.env.PORT;
 
+app.get('/',(req,res)=>{
+    try{
+        return res.status(200).json({message:"all set !!"});
+    }
+    catch(error){
+        return res.status(500).send(error.message);
+    }
+})
+
 app.post(`/Register`, async (req,res)=>{
     try{
         const usernameCheck= await Users.findOne({username:req.body.username});
