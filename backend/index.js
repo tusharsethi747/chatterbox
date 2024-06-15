@@ -139,18 +139,42 @@ app.post(`/api/message/getmsg`,async(req,res)=>{
         return res.status(500).send({msg:err.message});
     }
 })
+
+// const deleteDoc=async (req,res)=>{
+//     try{
+//         const db=await messages.findById("65d5b50c90b2b84b5318efde").select(["sender"]);
+//         console.log(db);
+//     }
+//     catch(error){
+//         console.log(error.message);
+//     }
+// }
+// deleteDoc();
+
+app.delete('/api/messages/delete',async (req,res)=>{
+    try{
+        const result=await messages.deleteMany({});
+        console.log(result);
+        res.status(200).json({message:"All messages deleted.."});
+    }
+    catch(error){
+        res.status(500).json({error:"error occured "});
+    }
+})
 // var server;
+let server;
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
+     server=app.listen(PORT,()=>{
+        console.log(`server has started one port no ${PORT}`);
+    })
     console.log(`running`);
 })
 .catch((error)=>{
     // console.log(`error occurred `);
     console.log(error.message);
 })
-const server=app.listen(PORT,()=>{
-    console.log(`server has started one port no ${PORT}`);
-})
+
 const io=new Server(server,{
     cors:{
         // origin:process.env.ORIGIN,
